@@ -11,7 +11,7 @@ public class Main {
         c.add("magneto");
         c.add("mystique");
         c.add("phoenix");
-        System.out.println("Test");
+        
         
         System.out.println("Longest: " + c.longest());
 
