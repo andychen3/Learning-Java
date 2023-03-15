@@ -13,5 +13,16 @@ public class BooksFromFile {
         // test your method here
 
     }
+    public static List<Book> readBooks(String file) {
+        try {
+            return Files.lines(Paths.get(file))
+                .map(row -> row.split(","))
+                .map(parts -> new Book(parts[0], Integer.valueOf(parts[1]), Integer.valueOf(parts[2]), parts[3]))
+                .collect(Collectors.toList());
+        } catch (Exception e) {
+            System.out.println("error");
+        }
+        return new ArrayList<>();
+    }
 
 }
