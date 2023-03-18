@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.*;
 
 public class MagicSquare {
 
@@ -17,15 +18,47 @@ public class MagicSquare {
 
     // implement these three methods
     public ArrayList<Integer> sumsOfRows() {
-        return new ArrayList<>();
+        ArrayList<Integer> sums = new ArrayList<>();
+        for (int i = 0; i < square.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < square[i].length; j++) {
+                sum += square[i][j];
+            }
+            sums.add(sum);
+        }
+        return sums;
     }
 
     public ArrayList<Integer> sumsOfColumns() {
-        return new ArrayList<>();
-    }
+        ArrayList<Integer> sums = new ArrayList<>();
+        for (int i = 0; i < square.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < square[i].length; j++) {
+                sum += square[j][i];
+                }
+            sums.add(sum);
+            }
+        return sums;
+        }
+        
 
     public ArrayList<Integer> sumsOfDiagonals() {
-        return new ArrayList<>();
+        Integer[] sums = new Integer[2];
+        sums[0] = 0;
+        sums[1] = 0;
+
+        // Find the left diagonal
+        for (int i = 0; i < this.square.length; i++) {
+            sums[0] += this.square[i][i];
+        }
+
+        // Find the right diagonal
+        int end = square.length-1;
+        for (int j = 0; j < this.square.length; j++) {
+            sums[1] += this.square[j][end-j];
+        }
+        ArrayList<Integer> newList = new ArrayList<>(Arrays.asList(sums));
+        return newList;
     }
 
     // ready-made helper methods -- don't touch these
